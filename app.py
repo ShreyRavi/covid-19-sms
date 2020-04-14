@@ -13,6 +13,7 @@ app = Flask(__name__)
 #homepage route
 @app.route("/")
 def homepage():
+    """main homepage route method"""
     return render_template("index.html")
 
 #sms route
