@@ -7,11 +7,11 @@ The COVID-19 SMS Update Service can be used by texting [+1(231) 774-2545](sms://
 ### Examples
 1. Text [+1(231) 774-2545](sms://+12317742545) a zipcode
 
-input:
+Input:
 ```
 77001
 ```
-output:
+Output:
 ```
 04/13 COVID-19 SMS Update:
 Harris County, Texas:
@@ -22,11 +22,11 @@ Source: New York Times. Thanks for using COVID-19 SMS Update!
 
 2. Text [+1(231) 774-2545](sms://+12317742545) a city, state Code
 
-input:
+Input:
 ```
 Kansas City, MO
 ```
-output:
+Output:
 ```
 04/13 COVID-19 SMS Update for Kansas City, MO:
 
@@ -47,11 +47,11 @@ Source: New York Times. Thanks for using COVID-19 SMS Update!
 
 3. Text [+1(231) 774-2545](sms://+12317742545) a state
 
-input:
+Input:
 ```
 WA
 ```
-output:
+Output:
 ```
 04/13 COVID-19 SMS Update for Washington:
 Confirmed Cases: 10411
@@ -87,6 +87,8 @@ python3 app.py
 - [zipcodes](https://pypi.org/project/zipcodes/)
 - [pandas](https://pandas.pydata.org/)
 - [numpy](https://numpy.org/)
+- [Heroku](http://heroku.com/)
+- [Gunicorn](https://gunicorn.org/)
 
 ## Data Source/Attribution
 The COVID-19 data is sourced from the New York Times's public GitHub repository CSV of COVID-19 data, from [here](https://github.com/nytimes/covid-19-data).
