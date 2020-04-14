@@ -74,7 +74,7 @@ pip install -r requirements.txt
 ```
 python3 app.py
 ```
-4. Use ngrok and Twilio to configure webhooks for your Twilio account.
+4. Use `ngrok` and Twilio to configure webhooks for your Twilio account.
 
 ## Built With
 - [Flask](https://palletsprojects.com/p/flask/)
