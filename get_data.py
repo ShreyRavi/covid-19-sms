@@ -10,7 +10,7 @@ import pandas as pd
 #standard error message
 ERROR_MSG = "COVID-19 SMS Update ERROR: Your input was invalid! Please text +1(231)774-2545 with a zipcode (ex. 77001), City, State Code (ex. Chicago, IL), or a state (ex. IL or Ohio)."
 
-#states dictionary
+#states code to full dictionary
 states_code_to_full = {
         'AK': 'Alaska',
         'AL': 'Alabama',
@@ -68,14 +68,75 @@ states_code_to_full = {
         'WA': 'Washington',
         'WI': 'Wisconsin',
         'WV': 'West Virginia',
-        'WY': 'Wyoming'
+        'WY': 'Wyoming',
+}
+
+#states to states code dictionary
+states_full_to_code = {
+        'Alaska': 'AK',
+        'Alabama': 'AL',
+        'Arkansas': 'AR',
+        'American Samoa': 'AS',
+        'Arizona': 'AZ',
+        'California': 'CA',
+        'Colorado': 'CO',
+        'Connecticut': 'CT',
+        'District of Columbia': 'DC',
+        'Delaware': 'DE',
+        'Florida': 'FL',
+        'Georgia': 'GA',
+        'Guam': 'GU',
+        'Hawaii': 'HI',
+        'Iowa': 'IA',
+        'Idaho': 'ID',
+        'Illinois': 'IL',
+        'Indiana': 'IN',
+        'Kansas': 'KS',
+        'Kentucky': 'KY',
+        'Louisiana': 'LA',
+        'Massachusetts': 'MA',
+        'Maryland': 'MD',
+        'Maine': 'ME',
+        'Michigan': 'MI',
+        'Minnesota': 'MN',
+        'Missouri': 'MO',
+        'Northern Mariana Islands': 'MP',
+        'Mississippi': 'MS',
+        'Montana': 'MT',
+        'National': 'NA',
+        'North Carolina': 'NC',
+        'North Dakota': 'ND',
+        'Nebraska': 'NE',
+        'New Hampshire': 'NH',
+        'New Jersey': 'NJ',
+        'New Mexico': 'NM',
+        'Nevada': 'NV',
+        'New York': 'NY',
+        'Ohio': 'OH',
+        'Oklahoma': 'OK',
+        'Oregon': 'OR',
+        'Pennsylvania': 'PA',
+        'Puerto Rico': 'PR',
+        'Rhode Island': 'RI',
+        'South Carolina': 'SC',
+        'South Dakota': 'SD',
+        'Tennessee': 'TN',
+        'Texas': 'TX',
+        'Utah': 'UT',
+        'Virginia': 'VA',
+        'Virgin Islands': 'VI',
+        'Vermont': 'VT',
+        'Washington': 'WA',
+        'Wisconsin': 'WI',
+        'West Virginia': 'WV',
+        'Wyoming': 'WY',
 }
 
 #get corona data from NYT 
 URL = "https://raw.githubusercontent.com/nytimes/covid-19-data/master/us-counties.csv"
-yesterday = str(datetime.date.today() - datetime.timedelta(days=1))
+LATEST_STABLE = str(datetime.date.today() - datetime.timedelta(days=2))
 data = pd.read_csv(URL)
-data = data[data.date == yesterday]
+data = data[data.date == LATEST_STABLE]
 
 def get_data_from_state(state):
     """get data from NYT csv based on a state lookup"""
@@ -142,8 +203,11 @@ def reply_citystate(body):
     try:
         city = body.split(",")[0].strip().title()
         state = body.split(",")[1].strip().upper()
-        if len(state) != 2 or state not in states_code_to_full.keys() or len(city) == 0:
-            return ERROR_MSG
+        if state not in states_code_to_full.keys():
+            if state.capitalize() not in states_full_to_code.keys():
+                return ERROR_MSG
+            else:
+                state = states_full_to_code[state.capitalize()]
         body = city + ", " + state
         msg = str(datetime.date.today().strftime("%m/%d")) + " COVID-19 SMS Update for "+ body +": \n"
         results = zipcodes.filter_by(city=city, state=state)
