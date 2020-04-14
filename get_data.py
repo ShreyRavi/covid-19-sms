@@ -8,7 +8,7 @@ import numpy as np
 import pandas as pd
 
 #standard error message
-ERROR_MSG = "COVID-19 SMS Update ERROR: Your input was invalid! Please text +1(231)774-2545 with a zipcode (ex. 77001), City, State Code (ex. Chicago, IL), or a state (ex. IL or Ohio)."
+ERROR_MSG = "COVID-19 SMS Update ERROR: Your input was invalid! Please text +1(231)774-2545 with a zipcode (ex. 77001) or City, State (ex. Chicago, IL), or a state (ex. IL or Ohio)."
 
 #states code to full dictionary
 states_code_to_full = {
