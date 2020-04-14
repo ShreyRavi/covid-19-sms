@@ -2,7 +2,7 @@
 A Twilio-powered SMS service that returns COVID-19 stats for zipcode, state, and city. Powered by Flask.
 
 ## Usage
-The COVID-19 SMS Update Service can be used by texting [+1(231) 774-2545](sms://+12317742545) with a zipcode, a City, State Code (such as Chicago, IL), or a state (such as IL or Ohio) to get the latest COVID-19 updates for that area. You can call [+1(231) 774-2545](tel://+12317742545) to get these instructions read out loud.
+The COVID-19 SMS Update Service can be used by texting [+1(231) 774-2545](sms://+12317742545) with a zipcode, a City, State Code (such as Chicago, IL), or a state (such as IL or Ohio) to get the latest COVID-19 updates for that area. One can call [+1(231) 774-2545](tel://+12317742545) to get these instructions read out loud.
 
 ### Examples
 1. Text [+1(231) 774-2545](sms://+12317742545) a zipcode
