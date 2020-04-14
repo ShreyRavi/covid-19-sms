@@ -6,6 +6,7 @@ The COVID-19 SMS Update Service can be used by texting [+1(231) 774-2545](sms://
 
 ### Examples
 1. Text [+1(231) 774-2545](sms://+12317742545) a zipcode
+
 input:
 ```
 77001
@@ -20,6 +21,7 @@ Source: New York Times. Thanks for using COVID-19 SMS Update!
 ```
 
 2. Text [+1(231) 774-2545](sms://+12317742545) a city, state Code
+
 input:
 ```
 Kansas City, MO
@@ -44,6 +46,7 @@ Source: New York Times. Thanks for using COVID-19 SMS Update!
 ```
 
 3. Text [+1(231) 774-2545](sms://+12317742545) a state
+
 input:
 ```
 WA
@@ -57,6 +60,7 @@ Source: New York Times. Thanks for using COVID-19 SMS Update!
 ```
 
 4. Call [+1(231) 774-2545](tel://+12317742545)
+
 See for yourself!
 
 ## [Live Homepage](#)
