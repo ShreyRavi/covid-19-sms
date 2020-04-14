@@ -1,5 +1,4 @@
 # COVID-19 SMS Update Service
-## By Shrey Ravi
 A Twilio-powered SMS service that returns COVID-19 stats for zipcode, state, and city. Powered by Flask.
 
 ## Usage
