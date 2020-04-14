@@ -1,4 +1,4 @@
-# COVID-19 SMS Update Service
+# [COVID-19 SMS Update Service](https://covid-19-sms-update.herokuapp.com/)
 A Twilio-powered SMS service that returns COVID-19 stats for zipcode, state, and city. Powered by Flask.
 
 ## Usage
@@ -63,7 +63,8 @@ Source: New York Times. Thanks for using COVID-19 SMS Update!
 
 See for yourself!
 
-## [Live Homepage](#)
+## [Live Homepage](https://covid-19-sms-update.herokuapp.com/)
+The SMS and voice routes are hosted on the Heroku repo above.
 
 ## Local Setup
 1. Clone Repository
