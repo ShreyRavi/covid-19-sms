@@ -29,7 +29,7 @@ def incoming_sms():
 def incoming_call():
     """static COVID-19 SMS Update voice response to incoming call"""
     resp = VoiceResponse()
-    resp.say("Thanks for Calling CoronaUpdate Service. Please text 231 774 2545 with a zipcode, a City, State Code (such as Chicago comma IL), or a state (such as IL) to get the latest COVID 19 updates for that area. Thanks, and have a great day!", voice='alice')
+    resp.say("Thanks for Calling the COVID-19 SMS Update Service. Please text 231 774 2545 with a zipcode, a City, State Code (such as Chicago comma IL), or a state (such as IL) to get the latest COVID 19 updates for that area. Thanks, and have a great day!", voice='alice')
     return str(resp)
 
 #run Flask app

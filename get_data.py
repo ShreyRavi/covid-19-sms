@@ -1,5 +1,5 @@
 #get_data.py
-#code to retrieve NYT Coronavirus data using Pandas
+#code to retrieve NYT COVID-19 data using Pandas
 
 #imports
 import zipcodes
@@ -133,7 +133,7 @@ def reply_state(state):
         dat = get_data_from_state(state.capitalize())
         if dat == -1:
             return ERROR_MSG
-        return str(datetime.date.today().strftime("%m/%d")) + " COVID-19 SMS Update for " + dat['state'] + ": \nConfirmed Cases: " + str(dat["confirmed"]) + " \nDeaths: " + str(dat["deaths"]) + "\nSource: New York Times. Thanks for using CoronaUpdate!"
+        return str(datetime.date.today().strftime("%m/%d")) + " COVID-19 SMS Update for " + dat['state'] + ": \nConfirmed Cases: " + str(dat["confirmed"]) + " \nDeaths: " + str(dat["deaths"]) + "\nSource: New York Times. Thanks for using COVID-19 SMS Update!"
     except:
         return ERROR_MSG
 
@@ -152,7 +152,7 @@ def reply_citystate(body):
             rep_zip = reply_zipcode(res['zip_code'], False)
             if rep_zip != ERROR_MSG:
                 temp_list.append(rep_zip)
-        msg += ''.join(list(set(temp_list))) + "\nSource: New York Times. Thanks for using CoronaUpdate!" if len(temp_list) > 0 else "City data not found. Thanks for using CoronaUpdate!"
+        msg += ''.join(list(set(temp_list))) + "\nSource: New York Times. Thanks for using COVID-19 SMS Update!" if len(temp_list) > 0 else "City data not found. Thanks for using COVID-19 SMS Update!"
         return msg
     except:
         return ERROR_MSG
@@ -163,6 +163,6 @@ def reply_zipcode(zipcode, intro=True):
     if dat == -1:
         return ERROR_MSG
     try:
-        return (str(datetime.date.today().strftime("%m/%d")) + " COVID-19 SMS Update: \n" if intro else "\n") + dat['county'] + " County, " + dat['state'] + ": \nConfirmed Cases: " + str(dat["confirmed"]) + " \nDeaths: " + str(dat["deaths"]) + ("\nSource: New York Times. Thanks for using CoronaUpdate!" if intro else "\n")
+        return (str(datetime.date.today().strftime("%m/%d")) + " COVID-19 SMS Update: \n" if intro else "\n") + dat['county'] + " County, " + dat['state'] + ": \nConfirmed Cases: " + str(dat["confirmed"]) + " \nDeaths: " + str(dat["deaths"]) + ("\nSource: New York Times. Thanks for using COVID-19 SMS Update!" if intro else "\n")
     except:
         return ERROR_MSG
