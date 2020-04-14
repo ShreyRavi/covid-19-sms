@@ -87,6 +87,8 @@ python3 app.py
 - [zipcodes](https://pypi.org/project/zipcodes/)
 - [pandas](https://pandas.pydata.org/)
 - [numpy](https://numpy.org/)
+- [Heroku](http://heroku.com/)
+- [Gunicorn](https://gunicorn.org/)
 
 ## Data Source/Attribution
 The COVID-19 data is sourced from the New York Times's public GitHub repository CSV of COVID-19 data, from [here](https://github.com/nytimes/covid-19-data).
