@@ -1,5 +1,5 @@
 #app.py
-#main Flask app for CoronaUpdate
+#main Flask app for COVID-19 SMS Update
 
 #imports
 from flask import Flask, request, render_template
@@ -18,7 +18,7 @@ def homepage():
 #sms route
 @app.route("/sms", methods=['GET', 'POST'])
 def incoming_sms():
-    """dynamic CoronaUpdate response to incoming text"""
+    """dynamic COVID-19 SMS Update response to incoming text"""
     body = request.values.get('Body', None).strip()
     resp = MessagingResponse()
     resp.message(reply(body))
@@ -27,7 +27,7 @@ def incoming_sms():
 #call route
 @app.route("/voice", methods=['GET', 'POST'])
 def incoming_call():
-    """static CoronaUpdate voice response to incoming call"""
+    """static COVID-19 SMS Update voice response to incoming call"""
     resp = VoiceResponse()
     resp.say("Thanks for Calling CoronaUpdate Service. Please text 231 774 2545 with a zipcode, a City, State Code (such as Chicago comma IL), or a state (such as IL) to get the latest COVID 19 updates for that area. Thanks, and have a great day!", voice='alice')
     return str(resp)

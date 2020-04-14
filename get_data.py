@@ -8,7 +8,7 @@ import numpy as np
 import pandas as pd
 
 #standard error message
-ERROR_MSG = "CoronaUpdate ERROR: Your input was invalid! Please text +1(231)774-2545 with a zipcode (ex. 77001), City, State Code (ex. Chicago, IL), or a state (ex. IL or Ohio)."
+ERROR_MSG = "COVID-19 SMS Update ERROR: Your input was invalid! Please text +1(231)774-2545 with a zipcode (ex. 77001), City, State Code (ex. Chicago, IL), or a state (ex. IL or Ohio)."
 
 #states dictionary
 states_code_to_full = {
@@ -133,7 +133,7 @@ def reply_state(state):
         dat = get_data_from_state(state.capitalize())
         if dat == -1:
             return ERROR_MSG
-        return str(datetime.date.today().strftime("%m/%d")) + " CoronaUpdate for " + dat['state'] + ": \nConfirmed Cases: " + str(dat["confirmed"]) + " \nDeaths: " + str(dat["deaths"]) + "\nSource: New York Times. Thanks for using CoronaUpdate!"
+        return str(datetime.date.today().strftime("%m/%d")) + " COVID-19 SMS Update for " + dat['state'] + ": \nConfirmed Cases: " + str(dat["confirmed"]) + " \nDeaths: " + str(dat["deaths"]) + "\nSource: New York Times. Thanks for using CoronaUpdate!"
     except:
         return ERROR_MSG
 
@@ -145,7 +145,7 @@ def reply_citystate(body):
         if len(state) != 2 or state not in states_code_to_full.keys() or len(city) == 0:
             return ERROR_MSG
         body = city + ", " + state
-        msg = str(datetime.date.today().strftime("%m/%d")) + " CoronaUpdate for "+ body +": \n"
+        msg = str(datetime.date.today().strftime("%m/%d")) + " COVID-19 SMS Update for "+ body +": \n"
         results = zipcodes.filter_by(city=city, state=state)
         temp_list = []
         for res in results:
@@ -163,6 +163,6 @@ def reply_zipcode(zipcode, intro=True):
     if dat == -1:
         return ERROR_MSG
     try:
-        return (str(datetime.date.today().strftime("%m/%d")) + " CoronaUpdate: \n" if intro else "\n") + dat['county'] + " County, " + dat['state'] + ": \nConfirmed Cases: " + str(dat["confirmed"]) + " \nDeaths: " + str(dat["deaths"]) + ("\nSource: New York Times. Thanks for using CoronaUpdate!" if intro else "\n")
+        return (str(datetime.date.today().strftime("%m/%d")) + " COVID-19 SMS Update: \n" if intro else "\n") + dat['county'] + " County, " + dat['state'] + ": \nConfirmed Cases: " + str(dat["confirmed"]) + " \nDeaths: " + str(dat["deaths"]) + ("\nSource: New York Times. Thanks for using CoronaUpdate!" if intro else "\n")
     except:
         return ERROR_MSG
