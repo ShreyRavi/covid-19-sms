@@ -8,7 +8,7 @@ import numpy as np
 import pandas as pd
 
 #standard error message
-ERROR_MSG = "COVID-19 SMS Update ERROR: Your input was invalid! Please text +1(231)774-2545 with a zipcode (ex. 77001) or City, State (ex. Chicago, IL), or a state (ex. IL or Ohio)."
+ERROR_MSG = "COVID-19 SMS Update ERROR: Your input was invalid! Please text +1(231)774-2545 with a zipcode (ex. 77001) or City, State (ex. Chicago, IL) or a state (ex. IL or Ohio)."
 
 #states code to full dictionary
 states_code_to_full = {
@@ -140,6 +140,8 @@ data = data[data.date == LATEST_STABLE]
 
 def get_data_from_state(state):
     """get data from NYT csv based on a state lookup"""
+    if len(state) == 2:
+        state = states_code_to_full[state.upper()]
     if len(data[data.state == state][['cases']]) == 0:
         return ERROR_MSG
     try:
@@ -191,7 +193,7 @@ def reply_state(state):
         #if state request is a state code, convert to full state name
         if len(state) == 2:
             state = states_code_to_full[state.upper()]
-        dat = get_data_from_state(state.capitalize())
+        dat = get_data_from_state(state.title())
         if dat == -1:
             return ERROR_MSG
         return str(datetime.date.today().strftime("%m/%d")) + " COVID-19 SMS Update for " + dat['state'] + ": \nConfirmed Cases: " + str(dat["confirmed"]) + " \nDeaths: " + str(dat["deaths"]) + "\nSource: New York Times. Thanks for using COVID-19 SMS Update!"
@@ -204,10 +206,10 @@ def reply_citystate(body):
         city = body.split(",")[0].strip().title()
         state = body.split(",")[1].strip().upper()
         if state not in states_code_to_full.keys():
-            if state.capitalize() not in states_full_to_code.keys():
+            if state.title() not in states_full_to_code.keys():
                 return ERROR_MSG
             else:
-                state = states_full_to_code[state.capitalize()]
+                state = states_full_to_code[state.title()]
         body = city + ", " + state
         msg = str(datetime.date.today().strftime("%m/%d")) + " COVID-19 SMS Update for "+ body +": \n"
         results = zipcodes.filter_by(city=city, state=state)
@@ -232,3 +234,5 @@ def reply_zipcode(zipcode, intro=True):
         return (str(datetime.date.today().strftime("%m/%d")) + " COVID-19 SMS Update: \n" if intro else "\n") + dat['county'] + " County, " + dat['state'] + ": \nConfirmed Cases: " + str(dat["confirmed"]) + " \nDeaths: " + str(dat["deaths"]) + ("\nSource: New York Times. Thanks for using COVID-19 SMS Update!" if intro else "\n")
     except:
         return ERROR_MSG
+
+print(reply("Providence, Rhode Islnd"))
