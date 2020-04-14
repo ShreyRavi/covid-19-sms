@@ -177,13 +177,13 @@ def reply(body):
     """main reply method which switches between types of requests"""
     #if City, State
     if ',' in body:
-        return reply_citystate(body)
+        return reply_citystate(body.strip())
     #if zipcode
-    elif body.isdecimal():
-        return reply_zipcode(body)
+    elif body.strip().replace("-","").isdecimal():
+        return reply_zipcode(body.strip())
     #else, try state?
     else:
-        return reply_state(body)
+        return reply_state(body.strip())
 
 def reply_state(state):
     """reply method by State or State Code request"""
@@ -223,6 +223,8 @@ def reply_citystate(body):
 
 def reply_zipcode(zipcode, intro=True):
     """reply method by zip-code request"""
+    if len(zipcode) > 5:
+        zipcode = zipcode[:5]
     dat = get_data_from_zipcode(zipcode)
     if dat == -1:
         return ERROR_MSG
