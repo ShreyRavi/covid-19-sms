@@ -1,7 +1,9 @@
 # [COVID-19 SMS Update Service](https://covid-19-sms-update.herokuapp.com/)
-A Twilio-powered SMS service that returns COVID-19 stats for zipcode, state, and city. Powered by Flask. Coded for the [Twilio Hackathon](https://dev.to/devteam/announcing-the-twilio-hackathon-on-dev-2lh8).
+A Twilio-powered SMS service that returns COVID-19 stats for zipcode, state, and city. Powered by Flask. Coded for the [Twilio Hackathon](https://dev.to/devteam/announcing-the-twilio-hackathon-on-dev-2lh8). [Submission post at Dev.to here](https://dev.to/shreyravi/covid-19-sms-update-service-4j4d).
 
 <p align="center"><img src="https://raw.githubusercontent.com/ShreyRavi/covid-19-sms/master/covid-19-sms-screenshot.png" height="93%" width="93%">Screenshots of the COVID-19 SMS Update Service in action for various requests.</p>
+
+## [Link to Dev.to Hackathon Post](https://dev.to/shreyravi/covid-19-sms-update-service-4j4d)
 
 ## Usage
 The COVID-19 SMS Update Service can be used by texting [+1(231) 774-2545](sms://+12317742545) with a zipcode, a City, State Code (such as Chicago, IL), or a state (such as IL or Ohio) to get the latest COVID-19 updates for that area. One can call [+1(231) 774-2545](tel://+12317742545) to get these instructions read out loud.
