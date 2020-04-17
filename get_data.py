@@ -181,7 +181,7 @@ def reply(body):
     if ',' in body:
         return reply_citystate(body.strip())
     #if zipcode
-    elif body.strip().replace("-","").isdecimal():
+    elif body.replace("-","").replace(".","").strip().isdecimal():
         return reply_zipcode(body.strip())
     #else, try state?
     else:
@@ -225,7 +225,7 @@ def reply_citystate(body):
 
 def reply_zipcode(zipcode, intro=True):
     """reply method by zip-code request"""
-    if len(zipcode) > 5:
+    if len(zipcode) == 10:
         zipcode = zipcode[:5]
     dat = get_data_from_zipcode(zipcode)
     if dat == -1:
