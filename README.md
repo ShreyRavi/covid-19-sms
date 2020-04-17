@@ -1,5 +1,6 @@
 # [COVID-19 SMS Update Service](https://covid-19-sms-update.herokuapp.com/)
-A Twilio-powered SMS service that returns COVID-19 stats for zipcode, state, and city. Powered by Flask. Coded for the [Twilio Hackathon](https://dev.to/devteam/announcing-the-twilio-hackathon-on-dev-2lh8). [Submission post at Dev.to here](https://dev.to/shreyravi/covid-19-sms-update-service-4j4d).
+A Twilio-powered SMS service that returns COVID-19 stats for zipcode, state, and city. Powered by Flask. Coded for the [Twilio Hackathon](https://dev.to/devteam/announcing-the-twilio-hackathon-on-dev-2lh8). 
+[Hackathon submission post at Dev.to here](https://dev.to/shreyravi/covid-19-sms-update-service-4j4d).
 
 <p align="center"><img src="https://raw.githubusercontent.com/ShreyRavi/covid-19-sms/master/covid-19-sms-screenshot.png" height="93%" width="93%">Screenshots of the COVID-19 SMS Update Service in action for various requests.</p>
 
