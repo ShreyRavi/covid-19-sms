@@ -193,7 +193,10 @@ def reply_state(state):
         #if state request is a state code, convert to full state name
         if len(state) == 2:
             state = states_code_to_full[state.upper()]
-        dat = get_data_from_state(state.title())
+        if "columbia" in state.lower():
+            dat = get_data_from_state("District of Columbia")
+        else:
+            dat = get_data_from_state(state.title())
         if dat == -1:
             return ERROR_MSG
         return str(datetime.date.today().strftime("%m/%d")) + " COVID-19 SMS Update for " + dat['state'] + ": \nConfirmed Cases: " + str(dat["confirmed"]) + " \nDeaths: " + str(dat["deaths"]) + "\nSource: New York Times. Thanks for using COVID-19 SMS Update!"
@@ -234,5 +237,3 @@ def reply_zipcode(zipcode, intro=True):
         return (str(datetime.date.today().strftime("%m/%d")) + " COVID-19 SMS Update: \n" if intro else "\n") + dat['county'] + " County, " + dat['state'] + ": \nConfirmed Cases: " + str(dat["confirmed"]) + " \nDeaths: " + str(dat["deaths"]) + ("\nSource: New York Times. Thanks for using COVID-19 SMS Update!" if intro else "\n")
     except:
         return ERROR_MSG
-
-print(reply("Providence, Rhode Islnd"))
