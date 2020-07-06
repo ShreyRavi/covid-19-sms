@@ -105,3 +105,6 @@ The COVID-19 data is sourced from the New York Times's public GitHub repository 
 - Multiple data sources
 - More granular reports
 - Regular subscription to reports
+
+## License
+[The MIT License (MIT)](https://raw.githubusercontent.com/ShreyRavi/covid-19-sms/master/LICENSE.txt)
